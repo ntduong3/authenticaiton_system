@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="auth-container">
+    <div class="auth-card">
+        <h1>Dang ky tai khoan</h1>
+        <p class="subtitle">Spring Boot MVC + Spring Security + Thymeleaf</p>
+
+        <form th:action="@{/register}" th:object="${user}" method="post">
+            <label for="fullName">Ho ten</label>
+            <input id="fullName" type="text" th:field="*{fullName}" placeholder="Nguyen Van A">
+            <p class="field-error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></p>
+
+            <label for="email">Email</label>
+            <input id="email" type="email" th:field="*{email}" placeholder="you@example.com">
+            <p class="field-error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+
+            <label for="password">Mat khau</label>
+            <input id="password" type="password" th:field="*{password}" placeholder="It nhat 6 ky tu">
+            <p class="field-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+
+            <label for="confirmPassword">Xac nhan mat khau</label>
+            <input id="confirmPassword" type="password" th:field="*{confirmPassword}" placeholder="Nhap lai mat khau">
+            <p class="field-error" th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}"></p>
+
+            <button type="submit">Tao tai khoan</button>
+        </form>
+
+        <p class="switch-link">Da co tai khoan? <a th:href="@{/login}">Dang nhap</a></p>
+    </div>
+</div>
+</body>
+</html>

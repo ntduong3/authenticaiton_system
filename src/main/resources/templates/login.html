@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="auth-container">
+    <div class="auth-card">
+        <h1>Dang nhap</h1>
+        <p class="subtitle">Su dung email va mat khau de truy cap he thong.</p>
+
+        <div class="alert success" th:if="${param.registered}">
+            Tao tai khoan thanh cong. Moi ban dang nhap.
+        </div>
+        <div class="alert error" th:if="${param.error}">
+            Email hoac mat khau khong dung.
+        </div>
+        <div class="alert success" th:if="${param.logout}">
+            Ban da dang xuat thanh cong.
+        </div>
+
+        <form th:action="@{/login}" method="post">
+            <label for="username">Email</label>
+            <input id="username" type="email" name="username" placeholder="you@example.com" required>
+
+            <label for="password">Mat khau</label>
+            <input id="password" type="password" name="password" placeholder="Nhap mat khau" required>
+
+            <button type="submit">Dang nhap</button>
+        </form>
+
+        <p class="switch-link">Chua co tai khoan? <a th:href="@{/register}">Dang ky ngay</a></p>
+    </div>
+</div>
+</body>
+</html>

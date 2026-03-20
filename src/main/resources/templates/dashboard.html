@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="dashboard-container">
+    <div class="dashboard-card">
+        <h1>Xin chao, <span th:text="${username}"></span></h1>
+        <p>Ban da dang nhap thanh cong vao he thong authentication MVC.</p>
+        <div class="info-box">
+            <p>Mo hinh dang dung:</p>
+            <ul>
+                <li>Controller xu ly request</li>
+                <li>Service chua business logic</li>
+                <li>Repository truy cap du lieu</li>
+                <li>Thymeleaf render giao dien MVC</li>
+            </ul>
+        </div>
+
+        <form th:action="@{/logout}" method="post">
+            <button class="secondary" type="submit">Dang xuat</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
