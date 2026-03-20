@@ -18,11 +18,15 @@
         <div class="alert error" th:if="${param.error}">
             Email hoac mat khau khong dung.
         </div>
+        <div class="alert warning" th:if="${param.expired}">
+            Phien dang nhap da het han sau 10 phut. Vui long dang nhap lai.
+        </div>
         <div class="alert success" th:if="${param.logout}">
             Ban da dang xuat thanh cong.
         </div>
 
         <form th:action="@{/login}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <label for="username">Email</label>
             <input id="username" type="email" name="username" placeholder="you@example.com" required>
 
@@ -37,3 +41,6 @@
 </div>
 </body>
 </html>
+
+
+

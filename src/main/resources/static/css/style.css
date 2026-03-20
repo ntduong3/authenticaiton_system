@@ -111,6 +111,11 @@ button.secondary {
     color: #991b1b;
 }
 
+.alert.warning {
+    background: #fef3c7;
+    color: #92400e;
+}
+
 .field-error {
     margin: 8px 0 0;
     padding: 8px 10px;
@@ -129,3 +134,4 @@ button.secondary {
     padding-left: 18px;
     margin-bottom: 0;
 }
+

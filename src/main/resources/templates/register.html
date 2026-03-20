@@ -13,6 +13,7 @@
         <p class="subtitle">Spring Boot MVC + Spring Security + Thymeleaf</p>
 
         <form th:action="@{/register}" th:object="${user}" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
             <label for="fullName">Ho ten</label>
             <input id="fullName" type="text" th:field="*{fullName}" placeholder="Nguyen Van A">
             <p class="field-error" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></p>
@@ -37,3 +38,5 @@
 </div>
 </body>
 </html>
+
+
